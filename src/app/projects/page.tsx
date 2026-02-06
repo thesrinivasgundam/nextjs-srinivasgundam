@@ -41,7 +41,7 @@ const projects = [
     description:
       'My old portfolio website, showcasing my previous projects and skills. It served as a platform to demonstrate my work and experience before the current portfolio was created.',
     image: '/srinivasgundam.png',
-    link: 'https://your-ecommerce-link.com',
+    link: 'https://portfolio-srinivasgundam.netlify.app',
   },
 ];
 
