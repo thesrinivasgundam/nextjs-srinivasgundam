@@ -1,107 +1,82 @@
 'use client';
 
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  ChartOptions,
-} from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
-import { Card, CardContent, Typography, Box } from '@mui/material';
+import dynamic from 'next/dynamic';
+import { Box } from '@mui/material';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+// ECharts core imports (optimized build)
+import * as echarts from 'echarts/core';
+import { PieChart } from 'echarts/charts';
+import { TooltipComponent, LegendComponent } from 'echarts/components';
+import { CanvasRenderer } from 'echarts/renderers';
+import type { EChartsOption } from 'echarts';
 
-const data = {
-  labels: [
-    'HTML/CSS',
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'Next.js',
-    'MUI',
-    'Python',
-    'Cybersecurity',
-    'Node.js',
-    'FastAPI / Django',
-    'Flutter / Dart',
-    'graphql',
-  ],
-  datasets: [
-    {
-      data: [80, 70, 60, 50, 50, 70, 40, 40, 60, 30, 40, 20],
-      backgroundColor: [
-        '#FF6E46', // HTML/CSS – vibrant orange
-        '#FFCF3E', // JavaScript – warm gold
-        '#72A8FF', // TypeScript – modern blue
-        '#22D3EE', // React – cyan
-        '#111827', // Next.js – near-black
-        '#578CFF', // MUI – royal blue
-        '#3776AB', // Python – official blue
-        '#FF4949', // Cybersecurity – strong red
-        '#6AFFA1', // Node.js – green
-        '#54FFEB', // Backend – teal
-        '#B96FFF', // Three.js – purple
-        '#FF70B8', // GraphQL – pink
-      ],
-      borderWidth: 0,
-      borderColor: '#000000',
-      cutout: '50%',
+// Register required components
+echarts.use([PieChart, TooltipComponent, LegendComponent, CanvasRenderer]);
+
+// Dynamically import React wrapper
+const ReactECharts = dynamic(() => import('echarts-for-react'), {
+  ssr: false,
+});
+
+const PieCharts = () => {
+  const option: EChartsOption = {
+    tooltip: {
+      trigger: 'item',
     },
-  ],
-};
-
-const options: ChartOptions<'doughnut'> = {
-  responsive: true,
-  maintainAspectRatio: false,
-
-  layout: {
-    padding: {
-      left: 50,
-      top: 10,
-      bottom: 10,
-    },
-  },
-
-  plugins: {
     legend: {
-      position: 'left',
-
-      labels: {
-        font: {
-          size: 20,
-          weight: 'bold',
+      show: false,
+    },
+    series: [
+      {
+        name: 'Skills',
+        type: 'pie',
+        radius: ['50%', '75%'], // Doughnut
+        avoidLabelOverlap: true,
+        itemStyle: {
+          borderRadius: 8,
+          borderColor: '#fff',
+          borderWidth: 7,
+        },
+        label: {
+          show: true,
+          position: 'inside',
+        },
+        emphasis: {
+          label: {
+            show: false,
+            fontSize: 18,
+            fontWeight: 'bold',
+          },
         },
 
-        usePointStyle: true,
-        pointStyle: 'rectRounded',
-        boxWidth: 12,
-        boxHeight: 12,
-        padding: 18,
+        data: [
+          { value: 90, name: 'HTML' },
+          { value: 80, name: 'CSS' },
+          { value: 90, name: 'JavaScript' },
+          { value: 70, name: 'TypeScript' },
+          { value: 80, name: 'React' },
+          { value: 80, name: 'Tailwind CSS' },
+          { value: 80, name: 'Next.js' },
+          { value: 70, name: 'MUI' },
+          { value: 60, name: 'Python' },
+          { value: 30, name: 'GraphQL' },
+          { value: 60, name: 'Django' },
+          { value: 50, name: 'Dart' },
+          { value: 60, name: 'Flutter' },
+        ],
       },
-    },
-  },
+    ],
+  };
+
+  return (
+    <Box sx={{ width: 500, height: 500 }}>
+      <ReactECharts
+        echarts={echarts}
+        option={option}
+        style={{ height: '100%', width: '100%' }}
+      />
+    </Box>
+  );
 };
 
-export default function SkillsDoughnutChart() {
-  return (
-    <Card
-      sx={{
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'transparent',
-        boxShadow: 'none',
-      }}
-    >
-      <CardContent>
-        <Typography variant="h6" gutterBottom align="center">
-          Skill Distribution
-        </Typography>
-
-        <Box sx={{ height: 500 }}>
-          <Doughnut data={data} options={options} />
-        </Box>
-      </CardContent>
-    </Card>
-  );
-}
+export default PieCharts;

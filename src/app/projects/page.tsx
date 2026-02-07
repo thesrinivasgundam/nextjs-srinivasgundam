@@ -20,7 +20,7 @@ const projects = [
     description:
       'digital marketer is a service that helps businesses grow their online presence and reach their target audience through strategic digital marketing campaigns.',
     image: '/portfolio_digital.png',
-    link: '',
+    link: 'https://maheshwari-gundam.netlify.app/',
   },
   {
     title: 'ElectroCare',

@@ -6,6 +6,7 @@ import { dmSans } from './fonts';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import WhatsAppFloating from '@/components/WhatsAppFloating';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,6 +26,7 @@ export default function RootLayout({
           <CssBaseline />
 
           {children}
+          <WhatsAppFloating />
         </ThemeProvider>
       </body>
     </html>
