@@ -67,7 +67,7 @@ const TopNav = () => {
           srinivas gundam
         </Typography>
         <Avatar
-          src="/avatar_cnu.png"
+          src="/srinivas.svg"
           sx={{
             width: { xs: 27, sm: 30, md: 40, lg: 50 },
             height: { xs: 27, sm: 30, md: 40, lg: 50 },

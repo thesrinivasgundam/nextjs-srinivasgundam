@@ -1,9 +1,10 @@
-use client';
+'use client';
 
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from '@/theme/theme';
+import WhatsAppFloating from '@/components/WhatsAppFloating';
 
-export default function Providers({
+export default function ThemeRegistry({
   children,
 }: {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ export default function Providers({
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {children}
+      <WhatsAppFloating />
     </ThemeProvider>
   );
 }
