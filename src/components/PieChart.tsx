@@ -1,9 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { Box } from '@mui/material';
-
-// ECharts core imports (optimized build)
+import Box from '@mui/material/Box';
 import * as echarts from 'echarts/core';
 import { PieChart } from 'echarts/charts';
 import { TooltipComponent, LegendComponent } from 'echarts/components';
@@ -13,7 +11,13 @@ import type { EChartsOption } from 'echarts';
 // Register required components
 echarts.use([PieChart, TooltipComponent, LegendComponent, CanvasRenderer]);
 
-// Dynamically import React wrapper
+// Register DM Sans theme
+echarts.registerTheme('dmSansTheme', {
+  textStyle: {
+    fontFamily: 'DM Sans, sans-serif',
+  },
+});
+
 const ReactECharts = dynamic(() => import('echarts-for-react'), {
   ssr: false,
 });
@@ -22,24 +26,44 @@ const PieCharts = () => {
   const option: EChartsOption = {
     tooltip: {
       trigger: 'item',
+      backgroundColor:'#1e1e1e',
+      borderRadius: 12,
+      textStyle:{
+        color:'#ffffff',
+        fontSize: 11,
+        fontWeight: 700,
+      },
+      formatter:(params: any) => `${params.name.toUpperCase()} : ${params.value}%`,
     },
     legend: {
       show: false,
+      bottom: 10,
+      left: 'center',
+      padding: 12,
+      backgroundColor: '#1e1e1e',
+      borderRadius: 12,
+      textStyle: {
+        color: '#ffffff',
+        fontSize: 12,
+      },
+      formatter: (name: string) => name.toUpperCase(),
     },
     series: [
       {
         name: 'Skills',
         type: 'pie',
-        radius: ['50%', '75%'], // Doughnut
+        radius: ['20%', '75%'],
         avoidLabelOverlap: true,
         itemStyle: {
           borderRadius: 8,
           borderColor: '#fff',
-          borderWidth: 7,
+          borderWidth: 3,
         },
         label: {
           show: true,
           position: 'inside',
+          formatter: ({ name }) => name.toUpperCase(),
+          fontWeight: 'bold',
         },
         emphasis: {
           label: {
@@ -48,7 +72,6 @@ const PieCharts = () => {
             fontWeight: 'bold',
           },
         },
-
         data: [
           { value: 90, name: 'HTML' },
           { value: 80, name: 'CSS' },
