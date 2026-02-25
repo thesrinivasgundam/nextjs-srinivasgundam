@@ -1,6 +1,9 @@
 'use client';
 
-import { Box, ButtonBase, Typography, Button } from '@mui/material';
+import Box from '@mui/material/Box';
+import ButtonBase from '@mui/material/ButtonBase';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react';
 import Btns from '@/components/arrows';
 
@@ -12,35 +15,21 @@ const projects = [
     title: 'BIOTECH LABS',
     description:
       'Biotech Labs is a biotechnology company advancing human health, sustainable agriculture, and environmental resilience through genetic engineering and synthetic biology.',
-    image: '/biotech.png',
+    image: '/biotech.webp',
     link: 'https://biotech-srinivasgundam.netlify.app/',
   },
   {
     title: 'DIGITAL MARKETER',
     description:
       'digital marketer is a service that helps businesses grow their online presence and reach their target audience through strategic digital marketing campaigns.',
-    image: '/portfolio_digital.png',
-    link: 'https://maheshwari-gundam.netlify.app/',
-  },
-  {
-    title: 'ElectroCare',
-    description:
-      'ElectroCare is all about providing electrical services with a focus on quality, reliability, and customer satisfaction. We offer a wide range of electrical solutions for residential, commercial, and industrial clients.',
-    image: 'electrocare.png',
-    link: 'https://electrocare-srinivasgundam.netlify.app/',
-  },
-  {
-    title: 'BURGERS WORLD',
-    description:
-      'Burgers World is a fast-food restaurant specializing in delicious, handcrafted burgers made with fresh ingredients and unique flavor combinations.',
-    image: '/burgers.png',
-    link: 'https://burgers-srinivasgundam.netlify.app/',
+    image: '/portfolio-marketer.png',
+    link: 'https://gundam-mahi.vercel.app/',
   },
   {
     title: 'OLD PORTFOLIO',
     description:
       'My old portfolio website, showcasing my previous projects and skills. It served as a platform to demonstrate my work and experience before the current portfolio was created.',
-    image: '/srinivasgundam.png',
+    image: '/srinivasgundam.webp',
     link: 'https://portfolio-srinivasgundam.netlify.app',
   },
 ];
