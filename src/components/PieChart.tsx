@@ -26,15 +26,17 @@ const PieCharts = () => {
   const option: EChartsOption = {
     tooltip: {
       trigger: 'item',
-      backgroundColor:'#1e1e1e',
+      backgroundColor: '#1e1e1e',
       borderRadius: 12,
-      textStyle:{
-        color:'#ffffff',
+      textStyle: {
+        color: '#ffffff',
         fontSize: 11,
         fontWeight: 700,
       },
-      formatter:(params: any) => `${params.name.toUpperCase()} : ${params.value}%`,
+      formatter: (params: any) =>
+        `${params.name.toUpperCase()} : ${params.value}%`,
     },
+
     legend: {
       show: false,
       bottom: 10,
@@ -48,6 +50,7 @@ const PieCharts = () => {
       },
       formatter: (name: string) => name.toUpperCase(),
     },
+
     series: [
       {
         name: 'Skills',
@@ -64,6 +67,7 @@ const PieCharts = () => {
           position: 'inside',
           formatter: ({ name }) => name.toUpperCase(),
           fontWeight: 'bold',
+          fontSize: 12, // default (desktop)
         },
         emphasis: {
           label: {
@@ -87,6 +91,34 @@ const PieCharts = () => {
           { value: 50, name: 'Dart' },
           { value: 60, name: 'Flutter' },
         ],
+      },
+    ],
+
+    // 🔥 Responsive Font Sizes
+    media: [
+      {
+        query: { maxWidth: 600 },
+        option: {
+          series: [
+            {
+              label: {
+                fontSize: 8,
+              },
+            },
+          ],
+        },
+      },
+      {
+        query: { minWidth: 601, maxWidth: 1024 },
+        option: {
+          series: [
+            {
+              label: {
+                fontSize: 9,
+              },
+            },
+          ],
+        },
       },
     ],
   };

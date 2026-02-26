@@ -1,7 +1,7 @@
 'use client';
 
-import { Box, Typography } from '@mui/material';
-
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 const images = [
   '/html5.webp',
   '/css3.png',
@@ -19,6 +19,8 @@ const images = [
 ];
 
 export default function ImageCarousel() {
+
+  
   return (
     <Box
       sx={{
@@ -38,7 +40,7 @@ export default function ImageCarousel() {
             marginTop: { xs: '13px', sm: '13px ', md: '25px', lg: '30px' },
             fontSize: { xs: '30px', sm: '30px', md: '30px', lg: '40px' },
             fontWeight: 900,
-            color: 'white',
+            
             letterSpacing: '5px',
             textShadow: '10px',
           }}
@@ -46,23 +48,58 @@ export default function ImageCarousel() {
           ABOUT ME
         </Typography>
         <Typography
-          sx={{
-            marginTop: { xs: '15px', sm: '15px', md: '7px', lg: '20px' },
-            fontSize: { xs: 10, sm: 10, md: 16, lg: 16 },
-            textAlign: 'center',
-            fontWeight: 700,
-            lineHeight: 2.5,
-            padding: { xs: 0.5, sm: 0.6, md: 0, lg: 6 },
-          }}
-        >
-          I build modern, responsive web and mobile applications using a
-          versatile technology stack. With HTML, CSS, and JavaScript, I create
-          clean and accessible user interfaces. Using React, TypeScript,
-          Next.js, and MUI, I develop scalable, high-performance frontend
-          applications. For cross-platform mobile development, I work with Dart
-          and Flutter to deliver smooth native-like experiences. On the backend,
-          I use Python, Django, and GraphQL to build secure and flexible APIs.
-        </Typography>
+  sx={{
+    marginTop: { xs: '15px', sm: '15px', md: '7px', lg: '20px' },
+    fontSize: { xs: 9, sm: 10, md: 16, lg: 16 },
+    textAlign: 'center',
+    fontWeight: 500,
+    lineHeight: 2.5,
+    padding: { xs: 2, sm: 0.6, md: 0, lg: 6 },
+  }}
+>
+  {(() => {
+    const text = `
+      I build modern, responsive web and mobile applications using a versatile technology stack.
+      With HTML, CSS, and JavaScript, I create clean and accessible user interfaces.
+      Using React, TypeScript, Next.js, and MUI, I develop scalable, high-performance frontend applications.
+      For cross-platform mobile development, I work with Dart and Flutter to deliver smooth native-like experiences.
+      On the backend, I use Python, Django, and GraphQL to build secure and flexible APIs.
+    `;
+
+    const boldWords = [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React',
+      'TypeScript',
+      'Next.js',
+      'MUI',
+      'Dart',
+      'Flutter',
+      'Python',
+      'Django',
+      'GraphQL',
+    ];
+
+    return text.split(/(\s+)/).map((word, index) => {
+      const cleanWord = word.replace(/[,.\n]/g, '');
+
+      if (boldWords.includes(cleanWord)) {
+        return (
+          <Box
+            key={index}
+            component="span"
+            sx={{ fontWeight: 700 }}
+          >
+            {word}
+          </Box>
+        );
+      }
+
+      return word;
+    });
+  })()}
+</Typography>
       </Box>
 
       {/* CAROUSEL CONTAINER */}
