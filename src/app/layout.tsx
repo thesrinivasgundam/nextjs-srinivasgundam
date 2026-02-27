@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { dmSans } from './fonts';
 import './globals.css';
 import ThemeRegistry from '@/components/ThemeRegistry';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://srinivasgundam.com'),
@@ -93,6 +94,7 @@ export default function RootLayout({
         <ThemeRegistry>
           {children}
         </ThemeRegistry>
+        <Analytics />
       </body>
     </html>
   );
