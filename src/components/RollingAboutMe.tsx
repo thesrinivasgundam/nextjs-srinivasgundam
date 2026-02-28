@@ -13,7 +13,7 @@ const images = [
   '/mui.svg',
   '/python.png',
   '/Graphql.svg',
-  '/django.png',
+  '/FastAPI.svg',
   '/dart.png',
   '/flutter.png',
 ];

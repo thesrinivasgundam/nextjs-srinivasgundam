@@ -84,7 +84,7 @@ const PieCharts = () => {
           { value: 70, name: 'MUI' },
           { value: 60, name: 'Python' },
           { value: 30, name: 'GraphQL' },
-          { value: 60, name: 'Django' },
+          { value: 60, name: 'FastAPI' },
           { value: 50, name: 'Dart' },
           { value: 60, name: 'Flutter' },
         ],
@@ -104,3 +104,6 @@ const PieCharts = () => {
 };
 
 export default PieCharts;
+
+
+// trying responsive make glitches in the chart
