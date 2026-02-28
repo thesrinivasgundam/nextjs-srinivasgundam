@@ -63,7 +63,7 @@ export default function ImageCarousel() {
       With HTML, CSS, and JavaScript, I create clean and accessible user interfaces.
       Using React, TypeScript, Next.js, and MUI, I develop scalable, high-performance frontend applications.
       For cross-platform mobile development, I work with Dart and Flutter to deliver smooth native-like experiences.
-      On the backend, I use Python, Django, and GraphQL to build secure and flexible APIs.
+      On the backend, I use Python, FastAPI, and GraphQL to build secure and flexible APIs.
     `;
 
     const boldWords = [
@@ -77,7 +77,7 @@ export default function ImageCarousel() {
       'Dart',
       'Flutter',
       'Python',
-      'Django',
+      'FastAPI',
       'GraphQL',
     ];
 
