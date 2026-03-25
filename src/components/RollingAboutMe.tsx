@@ -50,7 +50,7 @@ export default function ImageCarousel() {
         </Typography>
         <Typography
   sx={{
-    marginTop: { xs: '15px', sm: '15px', md: '7px', lg: '20px' },
+    marginTop: { xs: '14px', sm: '15px', md: '7px', lg: '20px' },
     fontSize: { xs: 9, sm: 10, md: 16, lg: 16 },
     textAlign: 'center',
     fontWeight: 500,
@@ -60,12 +60,11 @@ export default function ImageCarousel() {
 >
   {(() => {
     const text = `
-I build modern, responsive web and mobile applications using a versatile technology stack.
-With HTML, CSS, and JavaScript, I create clean and accessible user interfaces.
-Using React, TypeScript, Next.js, and MUI, I develop scalable, high-performance frontend applications.
-For cross-platform mobile development, I work with Dart and Flutter to deliver smooth native-like experiences.
-On the backend, I use Python, FastAPI, and GraphQL to build secure and flexible APIs.
-I also use Strapi as a headless CMS to manage content efficiently and deliver dynamic data to web and mobile applications.
+I build modern, responsive web and mobile applications using a versatile technology stack. With HTML, CSS, and JavaScript,
+ I create clean user interfaces. Using React, TypeScript, Next.js, and MUI, I develop scalable, high-performance
+  frontend applications. For cross-platform mobile development, I work with Dart and Flutter to deliver smooth native-like experiences.
+   On the backend, I use Python, FastAPI, and GraphQL to build secure and flexible APIs, along with Strapi
+    as a headless CMS for efficient content management.
 
     `;
 
@@ -130,12 +129,13 @@ I also use Strapi as a headless CMS to manage content efficiently and deliver dy
               alt="carousel"
               sx={{
                 width: { xs: 70, sm: 70, md: 90, lg: 90 },
-                height: 90,
+                height: {xs: 70 , sm : 70 ,md: 70, lg: 80},
                 p: 3,
                 objectFit: 'contain',
                 flexShrink: 0,
                 pointerEvents: 'none',
                 filter: 'drop-shadow(0px 4px 6px rgba(0,0,0,0.2))',
+                
               }}
             />
           ))}
