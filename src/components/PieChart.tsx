@@ -87,6 +87,7 @@ const PieCharts = () => {
           { value: 60, name: 'FastAPI' },
           { value: 50, name: 'Dart' },
           { value: 60, name: 'Flutter' },
+          { value: 50, name: 'strapi'}
         ],
       },
     ],

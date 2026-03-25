@@ -14,6 +14,7 @@ const images = [
   '/python.png',
   '/Graphql.svg',
   '/FastAPI.svg',
+  'strapi.webp',
   '/dart.png',
   '/flutter.png',
 ];
@@ -59,11 +60,13 @@ export default function ImageCarousel() {
 >
   {(() => {
     const text = `
-      I build modern, responsive web and mobile applications using a versatile technology stack.
-      With HTML, CSS, and JavaScript, I create clean and accessible user interfaces.
-      Using React, TypeScript, Next.js, and MUI, I develop scalable, high-performance frontend applications.
-      For cross-platform mobile development, I work with Dart and Flutter to deliver smooth native-like experiences.
-      On the backend, I use Python, FastAPI, and GraphQL to build secure and flexible APIs.
+I build modern, responsive web and mobile applications using a versatile technology stack.
+With HTML, CSS, and JavaScript, I create clean and accessible user interfaces.
+Using React, TypeScript, Next.js, and MUI, I develop scalable, high-performance frontend applications.
+For cross-platform mobile development, I work with Dart and Flutter to deliver smooth native-like experiences.
+On the backend, I use Python, FastAPI, and GraphQL to build secure and flexible APIs.
+I also use Strapi as a headless CMS to manage content efficiently and deliver dynamic data to web and mobile applications.
+
     `;
 
     const boldWords = [
@@ -79,6 +82,7 @@ export default function ImageCarousel() {
       'Python',
       'FastAPI',
       'GraphQL',
+      'Strapi'
     ];
 
     return text.split(/(\s+)/).map((word, index) => {
